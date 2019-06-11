@@ -4,7 +4,7 @@ use std::any::Any;
 use std::time::{Duration, Instant};
 
 use protocol::client::*;
-use protocol::{FlagCode, PowerupType};
+use protocol::{FlagCode, PowerupType, UpgradeType};
 use types::collision::Collision;
 pub use types::event::{ConnectionClose, ConnectionOpen, Message};
 use types::*;
@@ -79,6 +79,12 @@ pub struct PlayerSpectate {
 	pub target: Option<Entity>,
 	pub is_dead: bool,
 	pub is_spec: bool,
+}
+
+#[derive(Copy, Clone, Debug)]
+pub struct PlayerUpgrade {
+	pub player: Entity,
+	pub ty: UpgradeType,
 }
 
 #[derive(Copy, Clone, Debug, Hash, PartialEq, Eq)]
